@@ -55,9 +55,14 @@ const transporter = nodemailer.createTransport(smtpConfig);
 
 // Twilio SMS Helper Function
 async function sendTwilioSMS(toPhone: string, bodyText: string) {
-  const accountSid = process.env.TWILIO_ACCOUNT_SID || "your_twilio_account_sid";
-  const authToken = process.env.TWILIO_AUTH_TOKEN || "your_twilio_auth_token";
-  const fromPhone = process.env.TWILIO_PHONE_NUMBER || "+12186569048";
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  const authToken = process.env.TWILIO_AUTH_TOKEN;
+  const fromPhone = process.env.TWILIO_PHONE_NUMBER;
+
+  if (!accountSid || !authToken || !fromPhone) {
+    console.warn("Twilio credentials not configured. Skipping SMS dispatch.");
+    return { success: false, error: "Twilio credentials not configured" };
+  }
 
   let recipient = toPhone ? toPhone.trim() : "+12186569048";
   if (!recipient.startsWith("+")) {
@@ -500,8 +505,16 @@ app.post("/api/twilio/verify-otp", async (req, res) => {
 
 // Get Twilio Integration Status
 app.get("/api/twilio/status", (req, res) => {
-  const accountSid = process.env.TWILIO_ACCOUNT_SID || "your_twilio_account_sid";
-  const fromPhone = process.env.TWILIO_PHONE_NUMBER || "+12186569048";
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  const fromPhone = process.env.TWILIO_PHONE_NUMBER;
+  if (!accountSid || !fromPhone) {
+    return res.json({
+      configured: false,
+      accountSidMasked: "Not Configured",
+      fromPhoneNumber: "",
+      status: "Inactive"
+    });
+  }
   res.json({
     configured: true,
     accountSidMasked: accountSid.substring(0, 6) + "..." + accountSid.substring(accountSid.length - 4),
