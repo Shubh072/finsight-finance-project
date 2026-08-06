@@ -1,0 +1,50 @@
+{
+  "users": [
+    {
+      "id": "u_9n7clm0b6",
+      "fullName": "shubham gayakwad",
+      "username": "shubh",
+      "email": "shubham.gayakwad23@pcu.edu.in",
+      "phone": "+918780841063",
+      "passwordHash": "11cf67150021838b0301bc43e15968e4485f45160af52e0119a606df9eae8209",
+      "avatar": "SH",
+      "role": "Pro Member",
+      "dateOfBirth": null,
+      "gender": null,
+      "profilePhoto": null,
+      "createdAt": "2026-08-06T06:34:15.987Z",
+      "riskTolerance": "Moderate",
+      "monthlyGoal": 1500,
+      "currency": "USD",
+      "defaultAccount": "Chase Sapphire Preferred",
+      "securitySettings": {
+        "twoFactorEnabled": true,
+        "apiKeyEnabled": false,
+        "backupCodesCount": 8,
+        "activeSessions": [
+          {
+            "id": "s1",
+            "device": "MacBook Pro (16-inch)",
+            "ip": "198.162.1.84",
+            "location": "San Francisco, CA",
+            "lastActive": "Active Now",
+            "isCurrent": true
+          }
+        ]
+      },
+      "notificationSettings": {
+        "email": true,
+        "sms": false,
+        "push": true,
+        "aiSummaries": true
+      }
+    }
+  ],
+  "sessions": [
+    {
+      "token": "ca61285e547b4c9b025a8e8c470dc7870ea5e4bfe08bfe3237ee40b6a3320a18",
+      "userId": "u_9n7clm0b6",
+      "expiresAt": 1786170855987
+    }
+  ]
+}

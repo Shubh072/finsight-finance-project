@@ -1,0 +1,6 @@
+{
+  "name": "FinSight",
+  "description": "Enterprise-grade financial intelligence and portfolio analytics dashboard powered by Gemini.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
